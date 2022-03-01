@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './entities/user.entity';
 import * as bcrypt from 'bcrypt';
+import DatabaseCodes from 'src/database/database.codes';
 
 @Injectable()
 export class UsersService {
@@ -29,7 +30,13 @@ export class UsersService {
       user.password = undefined;
       return user;
     } catch (error) {
-      console.log(error.code);
+      if (error.code === DatabaseCodes.UniqueViolation) {
+        throw new HttpException('Email already exists', HttpStatus.BAD_REQUEST);
+      }
+      throw new HttpException(
+        'Something went wrong',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
     }
   }
 }
