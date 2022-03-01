@@ -1,0 +1,25 @@
+### Find all post
+GET http://localhost:3000/posts
+
+### Create new post
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+  "title": "The Last of Us",
+  "content": "The best Play Station game ever"
+}
+
+### Get a post by id
+GET http://localhost:3000/posts/1
+
+### Update a post by id
+PATCH http://localhost:3000/posts/1
+Content-Type: application/json
+
+{
+  "title": "God of War"
+}
+
+### Delete a post by id
+DELETE http://localhost:3000/posts/1
