@@ -16,3 +16,7 @@ Content-Type: application/json
   "email": "user1@email.com",
   "password": "secret"
 }
+
+### Get user info
+GET http://localhost:3000/auth
+Cookie: Authentication=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY0NjE4NTA1OSwiZXhwIjoxNjQ2MTg1MTE5fQ.j4csXvMT0P6VOjBCMu7bJixe35ekybT2ktMQBck0Jwo

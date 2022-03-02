@@ -19,6 +19,12 @@ export class UsersService {
     throw new HttpException('User not found', HttpStatus.NOT_FOUND);
   }
 
+  async findById(id: number) {
+    const user = await this.repository.findOne(id);
+    if (user) return user;
+    throw new HttpException('User not found', HttpStatus.NOT_FOUND);
+  }
+
   async create(createUserDto: CreateUserDto) {
     const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
     try {
